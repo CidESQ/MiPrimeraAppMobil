@@ -6,7 +6,9 @@ import RegisterForm from '../components/RegisterForm';
 import LoginForm from '../components/LoginForm';
 
 export default function Auth() {
+
   const [showLogin, setshowLogin] = useState(false);
+  
   return (
     <View style={layoutStyle.container}>
       <Image style={styles.logo} source={logo}/>

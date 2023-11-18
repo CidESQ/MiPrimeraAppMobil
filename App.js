@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import {PaperProvider} from 'react-native-paper';
 import { useState } from 'react';
 import Auth from './src/screens/Auth';
@@ -12,7 +12,7 @@ export default function App() {
   )
 };
 const myStyle = StyleSheet.create({
-  container: {
+  container:{
     flex : 1,
     alignItems: 'center',
     justifyContent: 'center',
