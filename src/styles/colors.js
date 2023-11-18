@@ -4,4 +4,4 @@ let colors = {
     fontLight: '#f0f0d8',
     lightDark: '#789048'
 }
-export {colors};
+export default colors;
