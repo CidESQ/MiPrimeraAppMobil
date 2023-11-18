@@ -21,7 +21,7 @@ export default function RegisterForm({changeForm}) {
       email: '',
       password: '',
       repeatPassword: ''
-    }
+    };
   };
 
   function validationSchema(){
@@ -31,7 +31,7 @@ export default function RegisterForm({changeForm}) {
         .max(20, 'Too Long!')
         .required('Required'),
 
-       email: Yup.string().email('Invalid email').required('Required'),
+      email: Yup.string().email('Invalid email').required('Required'),
 
       password: Yup.string()
         .required('Required'),
