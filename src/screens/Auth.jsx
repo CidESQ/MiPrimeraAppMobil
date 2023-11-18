@@ -8,11 +8,15 @@ import LoginForm from '../components/LoginForm';
 export default function Auth() {
 
   const [showLogin, setshowLogin] = useState(false);
-  
+
+  const changeForm = () => {
+    setshowLogin(!showLogin);
+  };
+
   return (
     <View style={layoutStyle.container}>
       <Image style={styles.logo} source={logo}/>
-      {showLogin ? <LoginForm/> : <RegisterForm/>}
+      {showLogin ? <LoginForm/> : <RegisterForm changeForm={changeForm}/>}
     </View>
   );
 };
