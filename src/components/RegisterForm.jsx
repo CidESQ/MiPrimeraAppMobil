@@ -4,30 +4,33 @@ import { Button, TextInput } from 'react-native-paper';
 import {formStyles} from '../styles/index';
 import colors from '../styles/colors';
 
-export default function RegisterForm(props) {
-  const {changeForm} = props;
+export default function RegisterForm({changeForm}) {
   return (
     <View>
       <TextInput
         label='User' 
         style={formStyles.input} 
         textColor={colors.fontLight}
+        activeUnderlineColor={colors.fontLight}
        />
       <TextInput 
         label='Email' 
         style={formStyles.input}
         textColor={colors.fontLight}
+        activeUnderlineColor={colors.fontLight}
       />
       <TextInput 
         label='Password' 
         style={formStyles.input} 
         textColor={colors.fontLight}
+        activeUnderlineColor={colors.fontLight}
         secureTextEntry
       />
       <TextInput 
         label='Repeat password' 
         style={formStyles.input} 
         textColor={colors.fontLight}
+        activeUnderlineColor={colors.fontLight}
         secureTextEntry
       />
       
@@ -45,7 +48,7 @@ export default function RegisterForm(props) {
         onPress={changeForm} 
         labelStyle={formStyles.secondaryBtn}
       >
-        Sign in
+        Log in
       </Button>
     </View>
   );
