@@ -5,14 +5,21 @@ import {formStyles} from '../styles/index';
 import colors from '../styles/colors';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
+import registerApi from '../API/user';
 
 export default function RegisterForm({changeForm}) {
   const formikVar = useFormik({
     initialValues : initialValues(),
-    onSubmit: values => {
-      console.log(values);
-    },
-    validationSchema: Yup.object(validationSchema())
+    validationSchema: Yup.object(validationSchema()),
+    onSubmit: async values => {
+      // console.log(values);
+      try{
+        await registerApi(values);
+        console.log('Ok');
+      }catch(error){
+        console.log(error);
+      }
+    },  
   });
 
   function initialValues(){
