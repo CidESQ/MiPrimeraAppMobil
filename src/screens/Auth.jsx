@@ -1,7 +1,7 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
-import {layoutStyle} from '../styles/index'
-import logo from "../../assets/miImagen.png"
+import { Image, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import {layoutStyle} from '../styles/index';
+import logo from "../../assets/miImagen.png";
 import RegisterForm from '../components/RegisterForm';
 import LoginForm from '../components/LoginForm';
 
