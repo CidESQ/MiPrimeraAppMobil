@@ -5,12 +5,23 @@ import { formStyles } from '../styles/index';
 import colors from '../styles/colors';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import { loginApi } from '../API/user';
 
 export default function LoginForm({changeForm}) {
+
   const myFormik = useFormik({
     initialValues : initialValues(),
     validationSchema: Yup.object(validationSchema()),
-    onSubmit: values => {console.log(values);}
+    // onSubmit: values => {console.log(values);}
+    onSubmit: async values => {
+      console.log(values);
+      try{
+        await loginApi(values);
+        console.log('OK');
+      }catch(error){
+        console.log('Algo anda mal' + error);
+      }
+    }
   });
 
   function initialValues(){

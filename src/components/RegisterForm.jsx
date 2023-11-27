@@ -5,7 +5,7 @@ import {formStyles} from '../styles/index';
 import colors from '../styles/colors';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import registerApi from '../API/user';
+import {registerApi} from '../API/user';
 
 export default function RegisterForm({changeForm}) {
   const formikVar = useFormik({
@@ -17,10 +17,10 @@ export default function RegisterForm({changeForm}) {
         await registerApi(values);
         console.log('Ok');
       }catch(error){
-        console.log(values);
+        // console.log(values);
         console.log(`${error} Algo anda mal`);
       }
-    },  
+    } 
   });
 
   function initialValues(){
