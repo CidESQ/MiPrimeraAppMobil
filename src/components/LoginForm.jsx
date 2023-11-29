@@ -16,8 +16,8 @@ export default function LoginForm({changeForm}) {
     onSubmit: async values => {
       console.log(values);
       try{
-        await loginApi(values);
-        console.log('OK');
+        const response = await loginApi(values);
+        console.log('OK : ' + response);
       }catch(error){
         console.log('Algo anda mal' + error);
       }

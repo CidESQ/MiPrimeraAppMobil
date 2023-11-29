@@ -1,5 +1,4 @@
 import { API_URL } from "../utilities/constants";
-// import axios from "axios";
 
 export async function registerApi(values) {
   try {
@@ -14,7 +13,7 @@ export async function registerApi(values) {
     };
 
     const response = await fetch(url, params);
-    const result = await response.json();
+    const result = await response.json;
     return result;
   } catch (error) {
     console.log(error);
@@ -35,7 +34,7 @@ export async function loginApi(values) {
     };
 
     const response = await fetch(url, params);
-    const result = await response.json();
+    const result = await response.json;
     return result;
   } catch (error) {
     console.log(`Error en login ${error}`);
