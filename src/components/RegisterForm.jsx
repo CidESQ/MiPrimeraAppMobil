@@ -1,16 +1,23 @@
+/* Coder: cidesgo@gmail.com */
+// * Librerias externas *
 import { Text, View } from 'react-native';
 import React from 'react';
 import { Button, TextInput } from 'react-native-paper';
-import {formStyles} from '../styles/index';
-import colors from '../styles/colors';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+// * Librerias internas *
+import {formStyles} from '../styles/index';
+import colors from '../styles/colors';
 import {registerApi} from '../API/user';
 
 export default function RegisterForm({changeForm}) {
+
   const formikVar = useFormik({
+
     initialValues : initialValues(),
+
     validationSchema: Yup.object(validationSchema()),
+
     onSubmit: async values => {
       // console.log(values);
       try{
@@ -34,20 +41,14 @@ export default function RegisterForm({changeForm}) {
 
   function validationSchema(){
     return{
-      username: Yup.string()
-        .min(2, 'Too Short!')
-        .max(20, 'Too Long!')
-        .required('Required'),
+      username: Yup.string().min(2, 'Too Short!').max(20, 'Too Long!').required('Required'),
 
       email: Yup.string().email('Invalid email').required('Required'),
 
-      password: Yup.string()
-        .required('Required'),
+      password: Yup.string().required('Required'),
       
-      password: Yup.string()
-        .required('Required')
-        .oneOf([Yup.ref('password')], true)
-    }
+      password: Yup.string().required('Required').oneOf([Yup.ref('password')], true)
+    };
   };
 
   return (

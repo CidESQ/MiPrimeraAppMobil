@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { Button, TextInput } from 'react-native-paper';
-import { formStyles } from '../styles/index';
-import colors from '../styles/colors';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+
 import { loginApi } from '../API/user';
+import { formStyles } from '../styles/index';
+import colors from '../styles/colors';
 
 export default function LoginForm({changeForm}) {
 

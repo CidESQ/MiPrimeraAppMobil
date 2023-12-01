@@ -1,5 +1,5 @@
-import { Alert, Button, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Alert, Button, Text, View } from 'react-native';
+import React from 'react';
 
 export default function Prueba() {
   return (
@@ -16,5 +16,3 @@ export default function Prueba() {
     </View>
   )
 }
-
-const styles = StyleSheet.create({})

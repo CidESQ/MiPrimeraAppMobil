@@ -1,5 +1,8 @@
+// * Librerias externas * 
 import { Image, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
+
+// * Librerias internas *
 import {layoutStyle} from '../styles/index';
 import logo from "../../assets/miImagen.png";
 import RegisterForm from '../components/RegisterForm';
@@ -18,9 +21,7 @@ export default function Auth() {
       <Image style={styles.logo} source={logo}/>
       {showLogin ? 
         <LoginForm changeForm={changeForm}/> : 
-        <RegisterForm 
-        changeForm={changeForm}
-        />
+        <RegisterForm changeForm={changeForm}/>
       }
     </View>
   );
