@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Auth from "./src/screens/Auth";
 import colors from "./src/styles/colors";
 import AuthContext from "./src/context/AuthContext";
+import { setTokenApi } from "./src/API/token";
 
 export default function App() {
   const [auth, setAuth] = useState(false);
@@ -15,6 +16,11 @@ export default function App() {
   const login = (user) => {
     console.log("Login : ");
     console.log(user);
+    setTokenApi(user.jwt);
+    setAuth({
+      token: user.jwt,
+      idUser: user.user._id,
+    });
   };
 
   const authData = useMemo(
