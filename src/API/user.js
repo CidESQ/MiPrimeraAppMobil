@@ -34,7 +34,7 @@ export async function loginApi(values) {
     };
 
     const response = await fetch(url, params);
-    const result = await response.json;
+    const result = await response.json();
     return result;
   } catch (error) {
     console.log(`Error en login ${error}`);

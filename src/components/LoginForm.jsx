@@ -7,18 +7,21 @@ import { useFormik } from 'formik';
 import { loginApi } from '../API/user';
 import { formStyles } from '../styles/index';
 import colors from '../styles/colors';
+import useAuth from '../hooks/useAuth';
 
 export default function LoginForm({changeForm}) {
+  const auth = useAuth()
+  console.log(auth);
 
   const myFormik = useFormik({
     initialValues : initialValues(),
     validationSchema: Yup.object(validationSchema()),
-    // onSubmit: values => {console.log(values);}
     onSubmit: async values => {
       console.log(values);
       try{
         const response = await loginApi(values);
-        console.log('OK : ' + response);
+        console.log("OK: " + response);
+
       }catch(error){
         console.log('Algo anda mal' + error);
       }
@@ -68,14 +71,14 @@ export default function LoginForm({changeForm}) {
         onPress={myFormik.handleSubmit} 
         style={formStyles.primaryBtn}
         textColor={colors.fontLight}
-        >Log in
+        >Log in 
       </Button>
 
       <Button 
         mode="text" 
         onPress={changeForm} 
         labelStyle={formStyles.secondaryBtn}
-        >Sign in
+        >Sign up
       </Button>
     </View>
   )

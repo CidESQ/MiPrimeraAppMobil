@@ -94,7 +94,7 @@ export default function RegisterForm({changeForm}) {
         style={formStyles.primaryBtn}
         textColor={colors.fontLight}
       >
-        Register
+        Sign Up
       </Button>
 
       <Button 
