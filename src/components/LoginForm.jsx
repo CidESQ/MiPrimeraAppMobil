@@ -10,8 +10,8 @@ import colors from '../styles/colors';
 import useAuth from '../hooks/useAuth';
 
 export default function LoginForm({changeForm}) {
-  const auth = useAuth()
-  console.log(auth);
+  const {login} = useAuth();
+  console.log(login);
 
   const myFormik = useFormik({
     initialValues : initialValues(),
@@ -20,8 +20,8 @@ export default function LoginForm({changeForm}) {
       console.log(values);
       try{
         const response = await loginApi(values);
-        console.log("OK: " + response);
-
+        // console.log("OK: " + response);
+        login(response);
       }catch(error){
         console.log('Algo anda mal' + error);
       }
@@ -30,7 +30,7 @@ export default function LoginForm({changeForm}) {
 
   function initialValues(){
     return{
-      email: '',
+      identifier: '',
       password: '',
     };
   };
@@ -38,7 +38,7 @@ export default function LoginForm({changeForm}) {
   function validationSchema(){
     return{
 
-      email: Yup.string().
+      identifier: Yup.string().
         email('Invalid email').
         required('Required'),
 
@@ -54,8 +54,8 @@ export default function LoginForm({changeForm}) {
         style={formStyles.input}
         textColor={colors.fontLight}
         activeUnderlineColor={colors.fontLight}
-        onChangeText={(text) => myFormik.setFieldValue('email', text)}
-        error={myFormik.errors.email}
+        onChangeText={(text) => myFormik.setFieldValue('identifier', text)}
+        error={myFormik.errors.identifier}
       />
       <TextInput 
         label='Password' 

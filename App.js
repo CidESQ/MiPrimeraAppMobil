@@ -9,7 +9,7 @@ export default function App() {
   const [auth, setAuth] = useState(false);
 
   useEffect(() => {
-    setAuth(null);
+    // setAuth(null);
   }, []);
 
   const login = (user) => {
