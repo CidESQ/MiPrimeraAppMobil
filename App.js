@@ -1,10 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
 import { PaperProvider } from "react-native-paper";
 import { useEffect, useMemo, useState } from "react";
+
 import Auth from "./src/screens/Auth";
-import colors from "./src/styles/colors";
 import AuthContext from "./src/context/AuthContext";
 import { setTokenApi } from "./src/API/token";
+import AppScreen from "./src/screens/AppScreen";
 
 export default function App() {
   const [auth, setAuth] = useState(false);
@@ -36,18 +37,9 @@ export default function App() {
 
   return (
     <AuthContext.Provider value={authData}>
-      <PaperProvider>
-        {auth ? <Text>Zona De Usuario</Text> : <Auth />}
-      </PaperProvider>
+      <PaperProvider>{auth ? <AppScreen /> : <Auth />}</PaperProvider>
     </AuthContext.Provider>
   );
 }
-
-const myStyle = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 20,
-    backgroundColor: colors.dark,
-  },
-});
+/* TODO Subir contenedor de docker backend a
+ google cloud y usar la ip publica para conectarme */
