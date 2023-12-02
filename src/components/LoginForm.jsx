@@ -23,7 +23,7 @@ export default function LoginForm({changeForm}) {
         // console.log("OK: " + response);
         login(response);
       }catch(error){
-        console.log('Algo anda mal' + error);
+        console.log('Algo anda mal ' + error);
       }
     }
   });

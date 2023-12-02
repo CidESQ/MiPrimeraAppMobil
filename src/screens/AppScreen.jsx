@@ -2,9 +2,11 @@ import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, 
 import React, { useState } from 'react';
 
 import Task from '../components/Task';
+import appStyles from '../styles/appStyles';
 
-export default function AppScreen() {
-
+export default function AppScreen(props) {
+  const nombreUsuario = props.usuario;
+  console.log("Nombre del usuario: " + nombreUsuario);
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
 
@@ -21,7 +23,7 @@ export default function AppScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={appStyles.container}>
 
     <ScrollView
       contentContainerStyle={{
@@ -31,11 +33,11 @@ export default function AppScreen() {
     >
 
       {/* Mostrar las tareas */}
-      <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>
-          Today's Tasks
+      <View style={appStyles.tasksWrapper}>
+        <Text style={appStyles.sectionTitle}>
+          Today's {nombreUsuario} Tasks
         </Text>
-        <View style={styles.items}>
+        <View style={appStyles.items}>
           {
             taskItems.map((item, index) => {
               return(
@@ -52,68 +54,16 @@ export default function AppScreen() {
     {/* Escribir una nueva tarea*/}
     <KeyboardAvoidingView
      behavior={Platform.OS === "ios" ? "padding" : "height" }
-     style={styles.writeTaskWrapper}>
+     style={appStyles.writeTaskWrapper}>
 
-      <TextInput style={styles.input} placeholder={'Write a task'} value={task} onChangeText={text => setTask(text)}/>
+      <TextInput style={appStyles.input} placeholder={'Write a task'} value={task} onChangeText={text => setTask(text)}/>
 
       <TouchableOpacity onPress={() => handleAddTask()} >
-        <View style={styles.addWrapper}>
-          <Text style={styles.addText}>+</Text>
+        <View style={appStyles.addWrapper}>
+          <Text style={appStyles.addText}>+</Text>
         </View>
       </TouchableOpacity>
     </KeyboardAvoidingView>
-
   </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'papayawhip',
-  },
-  tasksWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20,
-  },
-  sectionTitle:{
-    fontWeight: 'bold',
-    fontSize: 30,
-    marginBottom: 35
-  },
-  items:{
-    marginTop: 10
-  },
-  writeTaskWrapper:{
-    position: 'absolute',
-    bottom: 70,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  input:{
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    backgroundColor: "#789048",
-    borderRadius: 60,
-    borderColor: '#607848',
-    borderWidth: 2,
-    width: 250
-  },
-  addWrapper:{
-    width: 50,
-    height: 50,
-    backgroundColor: "#789048",
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: '#607848',
-    borderWidth: 2,
-
-  },
-  addText:{
-    fontSize: 30,
-    color: "#604848"
-  }
-});

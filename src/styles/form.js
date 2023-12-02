@@ -3,7 +3,7 @@ import colors from "./colors";
 
 const formStyles = StyleSheet.create({
   input: {
-    marginBottom: 20,
+    marginBottom: 25,
     backgroundColor: colors.primary,
     color: colors.fontLight,
     fontSize: 16,
@@ -12,7 +12,7 @@ const formStyles = StyleSheet.create({
   primaryBtn: {
     backgroundColor: colors.lightDark,
     padding: 10,
-    marginTop: 20,
+    marginTop: 60,
     color: colors.fontLight,
   },
   secondaryBtn: {

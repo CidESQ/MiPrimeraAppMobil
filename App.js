@@ -10,6 +10,7 @@ import AppScreen from "./src/screens/AppScreen";
 
 export default function App() {
   const [auth, setAuth] = useState(false);
+  const [myUser, setMyUser] = useState(null);
 
   useEffect(() => {
     // setAuth(null);
@@ -23,6 +24,7 @@ export default function App() {
       token: user.jwt,
       idUser: user.user._id,
     });
+    setMyUser(user.user.username);
   };
 
   const authData = useMemo(
@@ -39,7 +41,9 @@ export default function App() {
   return (
     <>
       <AuthContext.Provider value={authData}>
-        <PaperProvider>{auth ? <AppScreen /> : <Auth />}</PaperProvider>
+        <PaperProvider>
+          {auth ? <AppScreen usuario={myUser} /> : <Auth />}
+        </PaperProvider>
       </AuthContext.Provider>
     </>
   );
