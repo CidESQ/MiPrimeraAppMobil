@@ -35,7 +35,7 @@ export default function AppScreen(props) {
       {/* Mostrar las tareas */}
       <View style={appStyles.tasksWrapper}>
         <Text style={appStyles.sectionTitle}>
-          Today's {nombreUsuario} Tasks
+          Today's {nombreUsuario}'s Tasks
         </Text>
         <View style={appStyles.items}>
           {

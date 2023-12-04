@@ -33,6 +33,7 @@ const appStyles = StyleSheet.create({
     borderColor: "#607848",
     borderWidth: 2,
     width: 250,
+    color: "white",
   },
   addWrapper: {
     width: 50,
